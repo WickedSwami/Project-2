@@ -6,10 +6,10 @@ using namespace std;
 
 
     
-Command::Command(string firstWord, string secondWord)
+Command::Command(string first, string second)
 {
-    commandWord = firstWord;
-    this.secondWord = secondWord;
+    commandWord = first;
+    secondWord = second;
 }
 
 

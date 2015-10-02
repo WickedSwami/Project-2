@@ -1,22 +1,22 @@
+#ifndef Command_H
+#define Command_H
+
 #include <iostream>
 #include <string>
 using namespace std;
-
-#ifndef COMMAND_H
-#define COMMAND_H
 
 class Command
 {
 private:
     string commandWord;
-    string secondWord;
+    string otherWord;
 
 public:
-    Command(String firstWord, String secondWord);
+    Command(string first, string second);
     string getCommandWord();  
     bool getSecondWord();
 	bool isUnknown();   
-    bool hasSecondWord()
+    bool hasSecondWord();
 };
 
 #endif
