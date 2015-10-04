@@ -1,3 +1,11 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #include <iostream>
 #include <string>
 #include "Command.h"
@@ -27,11 +35,11 @@ string Command::getSecondWord()
 
 bool Command::isUnknown()
 {
-    return (commandWord == NULL);
+    return (commandWord.empty());
 }
 
 
 bool Command::hasSecondWord()
 {
-    return (secondWord != NULL);
+    return (secondWord.empty());
 }

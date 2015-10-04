@@ -1,3 +1,11 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #include <set>
 #include <iostream>
 #include <map>
@@ -22,27 +30,66 @@ void Game::createRooms()
     Room outside, theater, pub, lab, office;
   
     // create the rooms
-    outside = new Room("outside the main entrance of the university");
-    theater = new Room("in a lecture theater");
-    pub = new Room("in the campus pub");
-    lab = new Room("in a computing lab");
-    office = new Room("in the computing admin office");
+    grayMatter = new Room("Holds all necessary components of the brain");
+    cerebrum = new Room("Responsible for the brain's primary functions");
+    frontalLobe = new Room("Controls creative thought (judgment, behavior, personality, etc.)");
+    temporalLobe = new Room("Manages visual/auditory memories, language control center");
+    parietalLobe = new Room("Responsible for sensory comprehension");
+    sensoryCortex = new Room("Receives sensory input from spinal cord");
+    motorCortex = new Room("Helps the brain control voluntary bodily movements");
+
+    cerebellum = new Room("Controls balance, posture, and coordination");
+
+    limbicSystem = new Room("Emotional/hormonal control center of the brain");
+    amygdala = new Room("Facilitates anger/fear/panic responses");
+    hippocampus = new Room("Helps with long-term memory/learning and spacial reasoning");
+    hypothalamus - new Room("Regulates somatic processes/responses (hunger, thirst, homeostasis, etc.)");
+    thalamus = new Room("Controls attention, manages bodily sensations (i.e. pain)");
+
+    brainStem = new Room("Regulates involuntary somatic processes (heartbeat, metabolism, etc.)");
+    midBrain = new Room("Controls body movement, vision, hearing");
+    pons = new Room("Works with cerebellum to control posture/movement, regulates sleep cycle");
+    medulla = new Room("Controls heartbeat and breathing");
     
     // initialise room exits
-    outside.setExit("east", theater);
-    outside.setExit("south", lab);
-    outside.setExit("west", pub);
+    grayMatter.setExit("east", limbicSystem);
+    grayMatter.setExit("south", brainStem);
+    grayMatter.setExit("west", cerebellum);
+    grayMatter.setExit("north",cerebrum);
 
-    theater.setExit("west", outside);
+    cerebrum.setExit("east", temporalLobe);
+    cerebrum.setExit("south", grayMatter);
+    cerebrum.setExit("west", frontalLobe);
+    cerebrum.setExit("north", parietalLobe);
 
-    pub.setExit("east", outside);
+    parietalLobe.setExit(south, cerebrum);
+    parietalLobe.setExit("east", motorCortex);
+    parietalLobe.setExit("west", sensoryCortex);
 
-    lab.setExit("north", outside);
-    lab.setExit("east", office);
+    motorCortex.setExit("west".parietalLobe);
+    sensoryCortex.setExit("east",parietalLobe);
 
-    office.setExit("west", lab);
+    limbicSystem.setExit("west, grayMatter");
+    limbicSystem.setExit("north", amygdala);
+    limbicSystem.setExit("east", hippocampus);
+    limbicSystem.setExit("southeast", hypothalamus);
+    limbicSystem.setExit("south", thalamus);
+    
+    amygdala.setExit("south",limbicSystem);
+    hippocampus.setExit("west", limbicSystem);
+    hypothalamus.setExit("northwest", limbicSystem);
+    thalamus.setExit("north",limbicSystem);
 
-    currentRoom = outside;  // start game outside
+    brainStem.setExit("north", grayMatter);
+    brainStem.setExit("west", midBrain);
+    brainStem.setExit("south", pons);
+    brainStem.setExit("east", medulla);
+
+    midBrain.setExit("east", brainStem);
+    pons.setExit("north", brainStem);
+    medulla.setExit("west", brainStem);
+
+    currentRoom = grayMatter;  // start game outside
 }
 
 /**
@@ -69,8 +116,9 @@ void Game::play()
  */
 void Game::printWelcome()
 {
-    cout << "Welcome to the World of Zuul!";
-    cout << "World of Zuul is a new, incredibly boring adventure game.";
+    cout << "Welcome to Fester!";
+    cout << "Fester is a game in which you explore the brain of an infected patient.";
+    cout << "Find the phage before it's too late and the patient goes insane!";
     cout << "Type 'help' if you need help." << endl;
 
     cout << currentRoom.getLongDescription();
@@ -86,7 +134,7 @@ bool Game::processCommand(Command command)
     bool wantToQuit = false;
 
     if(command.isUnknown()) {
-        cout << "I don't know what you mean..."
+        cout << "I don't know what you mean..." << endl;
         return false;
     }
 
@@ -114,7 +162,7 @@ bool Game::processCommand(Command command)
 void Game::printHelp() 
 {
     cout <<"You are lost. You are alone." << endl;
-    cout << "You wander around at the university." <<endl;
+    cout << "You fire through the synapses without a purpose" <<endl;
     cout << "Your command words are: " parser.showCommands();
 }
 
@@ -133,14 +181,14 @@ void Game::goRoom(Command command)
     string direction = command.getSecondWord();
 
     // Try to leave current room.
-    Room nextRoom = currentRoom.getExit(direction);
+    Room * nextRoom = (*currentRoom).getExit(direction);
 
-    if (nextRoom == null) {
-        cout << "There is no door!";
+    if (nextRoom == NULL) {
+        cout << "There is no door!"; << endl;
     }
     else {
         currentRoom = nextRoom;
-        cout << currentRoom.getLongDescription();
+        cout << (*currentRoom).getLongDescription() << endl;
     }
 }
 
@@ -152,7 +200,7 @@ void Game::goRoom(Command command)
 bool Game::quit(Command command) 
 {
     if(command.hasSecondWord()) {
-        System.out.println("Quit what?");
+        cout << "Quit what? Help me out here, guy..." << endl;
         return false;
     }
     

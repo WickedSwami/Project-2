@@ -1,12 +1,20 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
+#ifndef PARSER_H
+#define PARSER_H
+
 #include <iostream>
 #include <string>
 #include "Command.h"
 #include "CommandWords.h"
 using namespace std;
 
-
-#ifndef PARSER_H
-#define PARSER_H
 
 class Parser 
 {
@@ -16,7 +24,7 @@ private:
     string toLowerCase(string);
 
 public:
-    Parser(commands);
+    Parser();
     Command getCommand();
     void showCommands();
 };

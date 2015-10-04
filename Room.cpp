@@ -1,3 +1,9 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*/
+
 #include <iostream>
 #include <cctype>
 #include <algorithm>
@@ -5,7 +11,7 @@
 #include "Room.h"
 using namespace std;
 
-Room::Room(string description) 
+Room::Room(string description):description(description) 
 {
     this.description = description;
     exits = map<string, Room*>;
@@ -18,34 +24,55 @@ Room::Room(string description)
  */
 void Room::setExit(string direction, Room* neighbor) 
 {
-    exits.insert(direction, neighbor);
+    exits.insert(pair<string, Room *>(direction, neighbor));
 }
 
+
+/*
+* Holds a short description of the rooom
+* @return the description of the character's current room
+*
+*/
 string Room::getShortDescription()
 {
     return description;
 }
 
 
+/*
+* Outputs the main character's current room and its available exits
+* @return current room, directions of available exits
+*
+*/
 string Room::getLongDescription()
 {
     return "You are " + description + ".\n" + getExitString();
 }
 
 
-string Room::getExitString()
-{
+/*
+* Lists the exits in a given room
+* @return the exits in a given room
+*
+*/
+string Room::getExitString(){
     string returnString = "Exits:";
 
-    set<string> keys = exits.keySet();
-    for(String exit : keys) {
-        returnString += " " + exit;
+    for(map<string, Room *>::const_iterator it = exits.begin();
+        it != exits.end(); it++)
+    {
+        returnString += " " + it->first;
     }
-
     return returnString;
 }
 
-Room* Room::getExit(string direction) 
+
+/*
+* Lists the room located in the direction given by the player
+* @return the room located in a given direction, NULL if otherwise
+*
+*/
+Room * Room::getExit(string direction) 
 {
     if (exits.find(direction)!=exits.end())
     {

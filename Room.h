@@ -1,9 +1,18 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #ifndef Room_H
 #define Room_H
 
 #include <set>
 #include <iostream>
 #include <map>
+#include <set>
 #include <string>
 using namespace std;
 
@@ -12,7 +21,7 @@ class Room
 {
 private:
     string description;
-    map<string, Room> exits; 
+    map<string, Room*> exits; 
     string getExitString();       
 
 public:
@@ -20,7 +29,8 @@ public:
     void setExit(string direction, Room* neighbor);
     string getShortDescription();
     string getLongDescription();
-    Room* getExit(string direction);
+    string getExitString();
+    Room * getExit(string direction);
 };
 
 #endif

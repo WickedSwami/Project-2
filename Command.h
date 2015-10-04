@@ -1,3 +1,11 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #ifndef Command_H
 #define Command_H
 
@@ -9,7 +17,7 @@ class Command
 {
 private:
     string commandWord;
-    string otherWord;
+    string secondWord;
 
 public:
     Command(string first, string second);

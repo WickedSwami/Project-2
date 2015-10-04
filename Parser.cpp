@@ -1,9 +1,19 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #include <iostream>
 #include <string>
 #include <set>
 #include "Parser.h"
 using namespace std;
 
+
+Parser::Parser(){}
 
 Command Parser::getCommand() 
 {

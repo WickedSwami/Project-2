@@ -1,3 +1,11 @@
+/* 
+* @author: Eric Stuppard
+* @version: September 30, 2015
+*
+*
+*
+*/
+
 #include <iostream>
 #include "CommandWords.h"
 #include "Command.h"
