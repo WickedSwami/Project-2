@@ -25,7 +25,7 @@ private:
 
 public:
     Room(string description);
-    void setExit(string direction, Room* neighbor);
+    void setExit(string direction, Room *neighbor);
     string getShortDescription();
     string getLongDescription();
     string getExitString();

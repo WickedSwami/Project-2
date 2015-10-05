@@ -29,65 +29,65 @@ void Game::createRooms()
 {
   
     // create the rooms
-    grayMatter = new Room("Holds all necessary components of the brain");
-    cerebrum = new Room("Responsible for the brain's primary functions");
-    frontalLobe = new Room("Controls creative thought (judgment, behavior, personality, etc.)");
-    temporalLobe = new Room("Manages visual/auditory memories, language control center");
-    parietalLobe = new Room("Responsible for sensory comprehension");
-    sensoryCortex = new Room("Receives sensory input from spinal cord");
-    motorCortex = new Room("Helps the brain control voluntary bodily movements");
+    Room *grayMatter = new Room("Holds all necessary components of the brain");
+    Room *cerebrum = new Room("Responsible for the brain's primary functions");
+    Room *frontalLobe = new Room("Controls creative thought (judgment, behavior, personality, etc.)");
+    Room *temporalLobe = new Room("Manages visual/auditory memories, language control center");
+    Room *parietalLobe = new Room("Responsible for sensory comprehension");
+    Room *sensoryCortex = new Room("Receives sensory input from spinal cord");
+    Room *motorCortex = new Room("Helps the brain control voluntary bodily movements");
 
-    cerebellum = new Room("Controls balance, posture, and coordination");
+    Room *cerebellum = new Room("Controls balance, posture, and coordination");
 
-    limbicSystem = new Room("Emotional/hormonal control center of the brain");
-    amygdala = new Room("Facilitates anger/fear/panic responses");
-    hippocampus = new Room("Helps with long-term memory/learning and spacial reasoning");
-    hypothalamus - new Room("Regulates somatic processes/responses (hunger, thirst, homeostasis, etc.)");
-    thalamus = new Room("Controls attention, manages bodily sensations (i.e. pain)");
+    Room *limbicSystem = new Room("Emotional/hormonal control center of the brain");
+    Room *amygdala = new Room("Facilitates anger/fear/panic responses");
+    Room *hippocampus = new Room("Helps with long-term memory/learning and spacial reasoning");
+    Room *hypothalamus = new Room("Regulates somatic processes/responses (hunger, thirst, homeostasis, etc.)");
+    Room *thalamus = new Room("Controls attention, manages bodily sensations (i.e. pain)");
 
-    brainStem = new Room("Regulates involuntary somatic processes (heartbeat, metabolism, etc.)");
-    midBrain = new Room("Controls body movement, vision, hearing");
-    pons = new Room("Works with cerebellum to control posture/movement, regulates sleep cycle");
-    medulla = new Room("Controls heartbeat and breathing");
+    Room *brainStem = new Room("Regulates involuntary somatic processes (heartbeat, metabolism, etc.)");
+    Room *midBrain = new Room("Controls body movement, vision, hearing");
+    Room *pons = new Room("Works with cerebellum to control posture/movement, regulates sleep cycle");
+    Room *medulla = new Room("Controls heartbeat and breathing");
     
     // initialise room exits
-    grayMatter.setExit("east", limbicSystem);
-    grayMatter.setExit("south", brainStem);
-    grayMatter.setExit("west", cerebellum);
-    grayMatter.setExit("north",cerebrum);
+    grayMatter->setExit("east", limbicSystem);
+    grayMatter->setExit("south", brainStem);
+    grayMatter->setExit("west", cerebellum);
+    grayMatter->setExit("north",cerebrum);
 
-    cerebrum.setExit("east", temporalLobe);
-    cerebrum.setExit("south", grayMatter);
-    cerebrum.setExit("west", frontalLobe);
-    cerebrum.setExit("north", parietalLobe);
+    cerebrum->setExit("east", temporalLobe);
+    cerebrum->setExit("south", grayMatter);
+    cerebrum->setExit("west", frontalLobe);
+    cerebrum->setExit("north", parietalLobe);
 
 
-    parietalLobe.setExit("south", cerebrum);
-    parietalLobe.setExit("east", motorCortex);
-    parietalLobe.setExit("west", sensoryCortex);
+    parietalLobe->setExit("south", cerebrum);
+    parietalLobe->setExit("east", motorCortex);
+    parietalLobe->setExit("west", sensoryCortex);
 
-    motorCortex.setExit("west",parietalLobe);
-    sensoryCortex.setExit("east",parietalLobe);
+    motorCortex->setExit("west",parietalLobe);
+    sensoryCortex->setExit("east",parietalLobe);
 
-    limbicSystem.setExit("west", grayMatter);
-    limbicSystem.setExit("north", amygdala);
-    limbicSystem.setExit("east", hippocampus);
-    limbicSystem.setExit("southeast", hypothalamus);
-    limbicSystem.setExit("south", thalamus);
+    limbicSystem->setExit("west", grayMatter);
+    limbicSystem->setExit("north", amygdala);
+    limbicSystem->setExit("east", hippocampus);
+    limbicSystem->setExit("southeast", hypothalamus);
+    limbicSystem->setExit("south", thalamus);
     
-    amygdala.setExit("south",limbicSystem);
-    hippocampus.setExit("west", limbicSystem);
-    hypothalamus.setExit("northwest", limbicSystem);
-    thalamus.setExit("north",limbicSystem);
+    amygdala->setExit("south",limbicSystem);
+    hippocampus->setExit("west", limbicSystem);
+    hypothalamus->setExit("northwest", limbicSystem);
+    thalamus->setExit("north",limbicSystem);
 
-    brainStem.setExit("north", grayMatter);
-    brainStem.setExit("west", midBrain);
-    brainStem.setExit("south", pons);
-    brainStem.setExit("east", medulla);
+    brainStem->setExit("north", grayMatter);
+    brainStem->setExit("west", midBrain);
+    brainStem->setExit("south", pons);
+    brainStem->setExit("east", medulla);
 
-    midBrain.setExit("east", brainStem);
-    pons.setExit("north", brainStem);
-    medulla.setExit("west", brainStem);
+    midBrain->setExit("east", brainStem);
+    pons->setExit("north", brainStem);
+    medulla->setExit("west", brainStem);
 
     // start game in the grey matter
     currentRoom = grayMatter;  
