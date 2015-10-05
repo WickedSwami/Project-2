@@ -2,6 +2,8 @@
 * @author: Eric Stuppard
 * @version: September 30, 2015
 *
+* Parser class reads user input, creates commands 
+* for program to use
 */
 
 #include <iostream>
@@ -44,10 +46,12 @@ Command Parser::getCommand()
 
     words.insert(inputLine);
     if(commands.isCommand(word1)) {
-        return new Command(word1, word2);
+        Command *thisCommand = new Command(word1,word2);
+        return *thisCommand;
     }
     else {
-        return new Command("", word2); 
+        Command *thatCommand = new Command("", word2);
+        return *thatCommand; 
     }
 }
 

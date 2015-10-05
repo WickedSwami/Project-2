@@ -20,8 +20,7 @@ class Room
 {
 private:
     string description;
-    map<string, Room*> exits; 
-    string getExitString();       
+    map<string, Room*> exits;       
 
 public:
     Room(string description);
