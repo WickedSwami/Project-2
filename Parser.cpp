@@ -2,8 +2,6 @@
 * @author: Eric Stuppard
 * @version: September 30, 2015
 *
-*
-*
 */
 
 #include <iostream>
@@ -12,9 +10,14 @@
 #include "Parser.h"
 using namespace std;
 
-
+//constructor for Parser (no instance variables)
 Parser::Parser(){}
 
+
+/*
+tells the parser to retrive a commands from player input
+@return the player's command to the parser for use
+*/
 Command Parser::getCommand() 
 {
     cout << "> ";
@@ -48,6 +51,8 @@ Command Parser::getCommand()
     }
 }
 
+
+//prints all valid commands to the terminal
 void Parser::showCommands()
 {
     commands.showAll();

@@ -11,6 +11,7 @@
 #include "CommandWords.h"
 
 
+//constructor for CommandWords; fills the list of valid commands
 CommandWords::CommandWords()
 {
     fillValidCommands(validCommands);
@@ -27,6 +28,7 @@ bool CommandWords::isCommand(string aString)
     return false;
 }
 
+//prints all available commands to the terminal
 void CommandWords::showAll() 
 {
     for(vector<string>::iterator command = validCommands.begin();
@@ -37,6 +39,7 @@ void CommandWords::showAll()
 
 }
 
+//fills the list of valid commands the player can use
 void CommandWords::fillValidCommands(vector<string> &commands)
 {
     validCommands.push_back("go");

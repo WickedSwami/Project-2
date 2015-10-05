@@ -2,8 +2,6 @@
 * @author: Eric Stuppard
 * @version: September 30, 2015
 *
-*
-*
 */
 
 #ifndef Command_H
