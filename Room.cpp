@@ -35,18 +35,6 @@ string Room::getShortDescription()
     return description;
 }
 
-
-/*
-* Outputs the main character's current room and its available exits
-* @return current room, directions of available exits
-*
-*/
-string Room::getLongDescription()
-{
-    return "You are " + description + ".\n" + getExitString();
-}
-
-
 /*
 * Lists the exits in a given room
 * @return the exits in a given room
@@ -62,6 +50,17 @@ string Room::getExitString()
         returnString += " " + it->first;
     }
     return returnString;
+}
+
+
+/*
+* Outputs the main character's current room and its available exits
+* @return current room, directions of available exits
+*
+*/
+string Room::getLongDescription()
+{
+    return "You are " + description + ".\n" + getExitString();
 }
 
 
