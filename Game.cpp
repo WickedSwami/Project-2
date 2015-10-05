@@ -69,7 +69,7 @@ void Game::createRooms()
     motorCortex.setExit("west",parietalLobe);
     sensoryCortex.setExit("east",parietalLobe);
 
-    limbicSystem.setExit("west, grayMatter");
+    limbicSystem.setExit("west", grayMatter);
     limbicSystem.setExit("north", amygdala);
     limbicSystem.setExit("east", hippocampus);
     limbicSystem.setExit("southeast", hypothalamus);
@@ -89,7 +89,8 @@ void Game::createRooms()
     pons.setExit("north", brainStem);
     medulla.setExit("west", brainStem);
 
-    currentRoom = grayMatter;  // start game outside
+    // start game in the grey matter
+    currentRoom = grayMatter;  
 }
 
 /**

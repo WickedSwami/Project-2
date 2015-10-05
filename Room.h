@@ -12,7 +12,6 @@
 #include <set>
 #include <iostream>
 #include <map>
-#include <set>
 #include <string>
 using namespace std;
 
@@ -30,7 +29,7 @@ public:
     string getShortDescription();
     string getLongDescription();
     string getExitString();
-    Room * getExit(string direction);
+    Room* getExit(string direction);
 };
 
 #endif
