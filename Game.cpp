@@ -27,7 +27,6 @@ Game::Game()
  */
 void Game::createRooms()
 {
-    Room outside, theater, pub, lab, office;
   
     // create the rooms
     grayMatter = new Room("Holds all necessary components of the brain");
@@ -62,11 +61,12 @@ void Game::createRooms()
     cerebrum.setExit("west", frontalLobe);
     cerebrum.setExit("north", parietalLobe);
 
-    parietalLobe.setExit(south, cerebrum);
+
+    parietalLobe.setExit("south", cerebrum);
     parietalLobe.setExit("east", motorCortex);
     parietalLobe.setExit("west", sensoryCortex);
 
-    motorCortex.setExit("west".parietalLobe);
+    motorCortex.setExit("west",parietalLobe);
     sensoryCortex.setExit("east",parietalLobe);
 
     limbicSystem.setExit("west, grayMatter");
@@ -121,7 +121,7 @@ void Game::printWelcome()
     cout << "Find the phage before it's too late and the patient goes insane!";
     cout << "Type 'help' if you need help." << endl;
 
-    cout << currentRoom.getLongDescription();
+    cout << (*currentRoom).getLongDescription();
 }
 
 /**
@@ -163,7 +163,8 @@ void Game::printHelp()
 {
     cout <<"You are lost. You are alone." << endl;
     cout << "You fire through the synapses without a purpose" <<endl;
-    cout << "Your command words are: " parser.showCommands();
+    cout << "Your command words are:" << endl;
+    parser.showCommands();
 }
 
 /** 
@@ -184,7 +185,7 @@ void Game::goRoom(Command command)
     Room * nextRoom = (*currentRoom).getExit(direction);
 
     if (nextRoom == NULL) {
-        cout << "There is no door!"; << endl;
+        cout << "There is no door!" << endl;
     }
     else {
         currentRoom = nextRoom;

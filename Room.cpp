@@ -12,10 +12,7 @@
 using namespace std;
 
 Room::Room(string description):description(description) 
-{
-    this.description = description;
-    exits = map<string, Room*>;
-}
+{}
 
 /**
  * Define an exit from this room.
@@ -55,7 +52,8 @@ string Room::getLongDescription()
 * @return the exits in a given room
 *
 */
-string Room::getExitString(){
+string Room::getExitString()
+{
     string returnString = "Exits:";
 
     for(map<string, Room *>::const_iterator it = exits.begin();

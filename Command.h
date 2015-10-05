@@ -22,7 +22,7 @@ private:
 public:
     Command(string first, string second);
     string getCommandWord();  
-    bool getSecondWord();
+    string getSecondWord();
 	bool isUnknown();   
     bool hasSecondWord();
 };

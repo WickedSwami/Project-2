@@ -23,7 +23,7 @@ Command Parser::getCommand()
     string word2;
 
     getline(cin, inputLine);
-    inputLine = toLowerCase(input)
+    //inputLine = toLowerCase(input)
 
     set<string> words;
     int location = inputLine.find_first_of(" ");
@@ -44,7 +44,7 @@ Command Parser::getCommand()
         return new Command(word1, word2);
     }
     else {
-        return new Command(null, word2); 
+        return new Command("", word2); 
     }
 }
 

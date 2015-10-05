@@ -16,7 +16,7 @@
 #include "Room.h"
 #include "Parser.h"
 #include "Command.h"
-#include "#CommandWords.h"
+#include "CommandWords.h"
 using namespace std;
 
 
