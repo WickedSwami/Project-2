@@ -11,6 +11,8 @@
 #include "Room.h"
 using namespace std;
 
+
+// Constructor for Room
 Room::Room(string name, string description)
 {
     roomName = name;
@@ -50,19 +52,21 @@ string Room::getName()
 */
 string Room::getExitString()
 {
-    string returnString = "Exits:";
+    string returnString = "Exits: ";
 
     for(map<string, Room *>::const_iterator it = exits.begin();
         it != exits.end(); it++)
     {
-        returnString += " " + it->first;
+        returnString += " " + it->first; + "/n";
     }
     return returnString;
 }
 
 
 /*
-* Outputs the main character's current room and its available exits
+* Outputs the main character's current room and its available 
+* exits
+*
 * @return current room, directions of available exits
 *
 */
@@ -74,7 +78,11 @@ string Room::getLongDescription()
 
 /*
 * Lists the room located in the direction given by the player
-* @return the room located in a given direction, NULL if otherwise
+*
+* @param a direction entered by the user
+*
+* @return the room located in a given direction, NULL 
+* if otherwise
 *
 */
 Room * Room::getExit(string direction) 

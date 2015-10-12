@@ -16,9 +16,6 @@ Command::Command(string first, string second)
 {
     commandWord = first;
     secondWord = second;
-
-    //cout << commandWord << endl;
-    //cout << secondWord << endl;
 }
 
 
@@ -51,7 +48,7 @@ string Command::getSecondWord()
 tests to see if a command is valid
 
 @return true or false, depending on whether or not the command
-is valid
+is recognized
 
 */
 bool Command::isUnknown()
@@ -63,6 +60,7 @@ bool Command::isUnknown()
 /*
 
 tests to see if a command has a second word
+
 @return true if the command has a second word, false otherwise
 
 */

@@ -165,6 +165,7 @@ void Game::printHelp()
 {
     cout <<"You are lost. You are alone." << endl;
     cout << "You fire through the synapses without a purpose" <<endl;
+    cout << currentRoom.getLongDescription(); << endl;
     cout << "Your command words are: " << endl;
     parser.showCommands();
 }

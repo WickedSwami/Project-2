@@ -15,6 +15,14 @@ CommandWords::CommandWords()
     fillValidCommands(validCommands);
 }
 
+/*
+
+returns true if a given string is a command
+
+@param  a string of any length
+@return  true if string is a command, false if otherwise
+
+*/
 bool CommandWords::isCommand(string aString)
 {
     for(int i = 0; i < validCommands.size(); i++) 
@@ -41,6 +49,7 @@ void CommandWords::showAll()
 void CommandWords::fillValidCommands(vector<string> &commands)
 {
     validCommands.push_back("go");
+    validCommands.push_back("take");
     validCommands.push_back("quit");
     validCommands.push_back("help");    
 }
