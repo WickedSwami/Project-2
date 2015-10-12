@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include <set>
+#include <vector>
 #include "Parser.h"
 using namespace std;
 
@@ -28,23 +28,30 @@ Command Parser::getCommand()
     string word2;
 
     getline(cin, inputLine);
-    //inputLine = toLowerCase(input)
 
-    set<string> words;
+    vector<string> words;
     int location = inputLine.find_first_of(" ");
     while (location!= string::npos)
     {
         string word = inputLine.substr(0,location);
         if(word != "")
         {
-            words.insert(word);
+            words.push_back(word);
         }
         
         inputLine = inputLine.substr(location+1);
         location = inputLine.find_first_of(" ");
     }
+    words.push_back(inputLine);
 
-    words.insert(inputLine);
+    if (words.size()>1) {
+        word1 = words[0];
+        word2 = words[1];
+    } else {
+        word1 = words[0];
+    }
+
+
     if(commands.isCommand(word1)) {
         Command *thisCommand = new Command(word1,word2);
         return *thisCommand;

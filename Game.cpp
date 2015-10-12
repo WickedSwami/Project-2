@@ -122,7 +122,7 @@ void Game::printWelcome()
     cout << "Find the phage before it's too late and the patient goes insane! ";
     cout << "Type 'help' if you need help." << endl;
 
-    cout << "You are now in ";
+    cout << "You are now in the ";
     cout << (*currentRoom).getName();
 }
 
@@ -165,7 +165,7 @@ void Game::printHelp()
 {
     cout <<"You are lost. You are alone." << endl;
     cout << "You fire through the synapses without a purpose" <<endl;
-    cout << "Your command words are:" << endl;
+    cout << "Your command words are: " << endl;
     parser.showCommands();
 }
 
