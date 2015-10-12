@@ -32,7 +32,7 @@ void CommandWords::showAll()
     for(vector<string>::iterator command = validCommands.begin();
         command != validCommands.end(); command++)
     {
-        cout << *command;
+        cout << *command + "\n";
     }
 
 }

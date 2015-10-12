@@ -47,6 +47,7 @@ Command Parser::getCommand()
     if (words.size()>1) {
         word1 = words[0];
         word2 = words[1];
+        cout << word2 << endl;
     } else {
         word1 = words[0];
     }

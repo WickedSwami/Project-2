@@ -16,6 +16,9 @@ Command::Command(string first, string second)
 {
     commandWord = first;
     secondWord = second;
+
+    //cout << commandWord << endl;
+    //cout << secondWord << endl;
 }
 
 
@@ -65,5 +68,5 @@ tests to see if a command has a second word
 */
 bool Command::hasSecondWord()
 {
-    return (secondWord.empty());
+    return (!secondWord.empty());
 }
