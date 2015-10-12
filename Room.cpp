@@ -11,8 +11,11 @@
 #include "Room.h"
 using namespace std;
 
-Room::Room(string description):description(description) 
-{}
+Room::Room(string name, string description)
+{
+    roomName = name;
+    roomDescription = description;
+}
 
 /**
  * Define an exit from this room.
@@ -32,7 +35,12 @@ void Room::setExit(string direction, Room* neighbor)
 */
 string Room::getShortDescription()
 {
-    return description;
+    return roomDescription;
+}
+
+string Room::getName()
+{
+    return roomName;
 }
 
 /*
@@ -60,7 +68,7 @@ string Room::getExitString()
 */
 string Room::getLongDescription()
 {
-    return "You are " + description + ".\n" + getExitString();
+    return "You are " + roomName + ".\n" + getExitString();
 }
 
 

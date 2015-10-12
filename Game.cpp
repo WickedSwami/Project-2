@@ -29,26 +29,26 @@ void Game::createRooms()
 {
   
     // create the rooms
-    Room *grayMatter = new Room("Holds all necessary components of the brain");
-    Room *cerebrum = new Room("Responsible for the brain's primary functions");
-    Room *frontalLobe = new Room("Controls creative thought (judgment, behavior, personality, etc.)");
-    Room *temporalLobe = new Room("Manages visual/auditory memories, language control center");
-    Room *parietalLobe = new Room("Responsible for sensory comprehension");
-    Room *sensoryCortex = new Room("Receives sensory input from spinal cord");
-    Room *motorCortex = new Room("Helps the brain control voluntary bodily movements");
+    Room *grayMatter = new Room("gray matter", "Holds all necessary components of the brain");
+    Room *cerebrum = new Room("cerebrum", "Responsible for the brain's primary functions");
+    Room *frontalLobe = new Room("frontal lobe", "Controls creative thought (judgment, behavior, personality, etc.)");
+    Room *temporalLobe = new Room("temporal lobe", "Manages visual/auditory memories, language control center");
+    Room *parietalLobe = new Room("parietal lobe", "Responsible for sensory comprehension");
+    Room *sensoryCortex = new Room("sensory cortex", "Receives sensory input from spinal cord");
+    Room *motorCortex = new Room("motor cortex", "Helps the brain control voluntary bodily movements");
 
-    Room *cerebellum = new Room("Controls balance, posture, and coordination");
+    Room *cerebellum = new Room("cerebellum", "Controls balance, posture, and coordination");
 
-    Room *limbicSystem = new Room("Emotional/hormonal control center of the brain");
-    Room *amygdala = new Room("Facilitates anger/fear/panic responses");
-    Room *hippocampus = new Room("Helps with long-term memory/learning and spacial reasoning");
-    Room *hypothalamus = new Room("Regulates somatic processes/responses (hunger, thirst, homeostasis, etc.)");
-    Room *thalamus = new Room("Controls attention, manages bodily sensations (i.e. pain)");
+    Room *limbicSystem = new Room("limbic system", "Emotional/hormonal control center of the brain");
+    Room *amygdala = new Room("amygdala", "Facilitates anger/fear/panic responses");
+    Room *hippocampus = new Room("hippocampus", "Helps with long-term memory/learning and spacial reasoning");
+    Room *hypothalamus = new Room("hypothalamus", "Regulates somatic processes/responses (hunger, thirst, homeostasis, etc.)");
+    Room *thalamus = new Room("thalamus", "Controls attention, manages bodily sensations (i.e. pain)");
 
-    Room *brainStem = new Room("Regulates involuntary somatic processes (heartbeat, metabolism, etc.)");
-    Room *midBrain = new Room("Controls body movement, vision, hearing");
-    Room *pons = new Room("Works with cerebellum to control posture/movement, regulates sleep cycle");
-    Room *medulla = new Room("Controls heartbeat and breathing");
+    Room *brainStem = new Room("brain stem", "Regulates involuntary somatic processes (heartbeat, metabolism, etc.)");
+    Room *midBrain = new Room("midbrain", "Controls body movement, vision, hearing");
+    Room *pons = new Room("pons", "Works with cerebellum to control posture/movement, regulates sleep cycle");
+    Room *medulla = new Room("medulla", "Controls heartbeat and breathing");
     
     // initialise room exits
     grayMatter->setExit("east", limbicSystem);
@@ -117,12 +117,13 @@ void Game::play()
  */
 void Game::printWelcome()
 {
-    cout << "Welcome to Fester!";
-    cout << "Fester is a game in which you explore the brain of an infected patient.";
-    cout << "Find the phage before it's too late and the patient goes insane!";
+    cout << "Welcome to Fester! ";
+    cout << "Fester is a game in which you explore the brain of an infected patient. ";
+    cout << "Find the phage before it's too late and the patient goes insane! ";
     cout << "Type 'help' if you need help." << endl;
 
-    cout << (*currentRoom).getLongDescription();
+    cout << "You are now in ";
+    cout << (*currentRoom).getName();
 }
 
 /**
@@ -190,7 +191,8 @@ void Game::goRoom(Command command)
     }
     else {
         currentRoom = nextRoom;
-        cout << (*currentRoom).getLongDescription() << endl;
+        cout << "You are now in the ";
+        cout<< (*currentRoom).getName() << endl;
     }
 }
 

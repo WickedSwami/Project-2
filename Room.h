@@ -19,12 +19,14 @@ using namespace std;
 class Room 
 {
 private:
-    string description;
+    string roomName;
+    string roomDescription;
     map<string, Room*> exits;       
 
 public:
-    Room(string description);
+    Room(string name, string description);
     void setExit(string direction, Room *neighbor);
+    string getName();
     string getShortDescription();
     string getLongDescription();
     string getExitString();
