@@ -19,10 +19,13 @@ Room::Room(string name, string description)
     roomDescription = description;
 }
 
-/**
+
+/*
  * Define an exit from this room.
+ *
  * @param direction The direction of the exit.
  * @param neighbor  The room to which the exit leads.
+ *
  */
 void Room::setExit(string direction, Room* neighbor) 
 {
@@ -40,10 +43,14 @@ string Room::getShortDescription()
     return roomDescription;
 }
 
+
+// Returns the name of a room
+// @return  the name of a room
 string Room::getName()
 {
     return roomName;
 }
+
 
 /*
 * Lists the exits in a given room
@@ -62,18 +69,6 @@ string Room::getExitString()
     return returnString;
 }
 
-
-string Room::getItemString()
-{
-    string returnString = "Items available: ";
-
-    for (map<string, item *>::const_iterator it = exits.begin()
-        it != exits.end(); it++)
-    {
-        returnString += " " + it->first + ".\n";
-    }
-    return returnString;
-}
 
 
 /*
@@ -112,18 +107,36 @@ Room * Room::getExit(string direction)
 
 // Adds an item to the room
 // @param the item to be added
-void Room::addItem(item* theItem)
+void Room::addItem(Item* theItem)
 {
-    items.insert(theItem);   
+    items.insert(theItem.getName(),theItem);   
 }
 
 
 // Removes an item from a room
-// @param the item to be removed
-void Room::removeItem(item* theItem)
+// @param the item to be remove
+void Room::removeItem(Item* theItem)
 {
-    if (items.find(theItem)!=items.end())
+    if (items.find(theItem.getName())!=items.end())
     {
-        items.remove(theItem);
+        items.remove(theItem.getName(),theItem);
     }
+}
+
+
+/*
+* Lists the items in a given room
+* @return the items in a given room
+*
+*/
+string Room::getItemString()
+{
+    string returnString = "Items available: ";
+
+    for (map<string, Item *>::const_iterator it = items.begin();
+        it != items.end(); it++)
+    {
+        returnString += " " + it->first + ".\n";
+    }
+    return returnString;
 }

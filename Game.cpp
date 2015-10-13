@@ -52,12 +52,31 @@ void Game::createRooms()
     
 
     // initialize the items
-    Item *glucose = new Item("glucose","Gives the player health")
+    Item *glucose = new Item("glucose","Gives the player health");
+    Item *endorphin = new Item("endorphin","Completely refills the player's health");
     Item *serotonin = new Item("serotonin","Increases the player's health capacity");
     Item *dopamine = new Item("dopamine","Gives the player a boost in movement speed");
     Item *memory = new Item("memory","Reveals what happened to the patient, how to help them");
     Item *adrenaline = new Item("dopamine","Gives the player temporary invincibility");
-    Item *endorphin = new Item("endorphin","")
+
+
+    // place items in the rooms
+    cerebrum->addItem(memory);
+    frontalLobe->addItem(endorphin);
+    temporalLobe->addItem(memory);
+    motorCortex->addItem(dopamine);
+
+    cerebellum->addItem(dopamine);
+
+    limbicSystem->addItem(glucose);
+    limbicSystem->addItem(serotonin);
+    amygdala->addItem(adrenaline);
+    amygdala->addItem(dopamine);
+    hypothalamus->addItem(glucose);
+    thalamus->addItem(serotonin);
+
+    brainStem->addItem(endorphin);
+    midBrain->addItem(memory);
 
 
     // initialise room exits
@@ -176,7 +195,7 @@ void Game::printHelp()
 {
     cout <<"You are lost. You are alone." << endl;
     cout << "You fire through the synapses without a purpose" <<endl;
-    cout << currentRoom.getLongDescription(); << endl;
+    cout << currentRoom->getLongDescription() << endl;
     cout << "Your command words are: " << endl;
     parser.showCommands();
 }

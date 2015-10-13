@@ -23,7 +23,7 @@ private:
     string roomName;
     string roomDescription;
     map<string, Room*> exits;       
-    map<string, item*> items;
+    map<string, Item> items;
 
 public:
     Room(string name, string description);
@@ -34,8 +34,9 @@ public:
     string getExitString();
     Room* getExit(string direction);
 
-    void addItem(item* theItem);
-    void removeItem(string name);
+    void addItem(Item* theItem);
+    void removeItem(Item* theItem);
+    string getItemString();
 };
 
 #endif
