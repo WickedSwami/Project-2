@@ -57,7 +57,20 @@ string Room::getExitString()
     for(map<string, Room *>::const_iterator it = exits.begin();
         it != exits.end(); it++)
     {
-        returnString += " " + it->first; + "/n";
+        returnString += " " + it->first + ".\n";
+    }
+    return returnString;
+}
+
+
+string Room::getItemString()
+{
+    string returnString = "Items available: ";
+
+    for (map<string, item *>::const_iterator it = exits.begin()
+        it != exits.end(); it++)
+    {
+        returnString += " " + it->first + ".\n";
     }
     return returnString;
 }
@@ -72,7 +85,8 @@ string Room::getExitString()
 */
 string Room::getLongDescription()
 {
-    return "You are " + roomName + ".\n" + getExitString();
+    return "You are " + roomName + ".\n" + getExitString() + ".\n"
+    + getItemString();
 }
 
 
@@ -93,4 +107,23 @@ Room * Room::getExit(string direction)
     }
 
     return NULL;
+}
+
+
+// Adds an item to the room
+// @param the item to be added
+void Room::addItem(item* theItem)
+{
+    items.insert(theItem);   
+}
+
+
+// Removes an item from a room
+// @param the item to be removed
+void Room::removeItem(item* theItem)
+{
+    if (items.find(theItem)!=items.end())
+    {
+        items.remove(theItem);
+    }
 }

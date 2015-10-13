@@ -50,6 +50,16 @@ void Game::createRooms()
     Room *pons = new Room("pons", "Works with cerebellum to control posture/movement, regulates sleep cycle");
     Room *medulla = new Room("medulla", "Controls heartbeat and breathing");
     
+
+    // initialize the items
+    Item *glucose = new Item("glucose","Gives the player health")
+    Item *serotonin = new Item("serotonin","Increases the player's health capacity");
+    Item *dopamine = new Item("dopamine","Gives the player a boost in movement speed");
+    Item *memory = new Item("memory","Reveals what happened to the patient, how to help them");
+    Item *adrenaline = new Item("dopamine","Gives the player temporary invincibility");
+    Item *endorphin = new Item("endorphin","")
+
+
     // initialise room exits
     grayMatter->setExit("east", limbicSystem);
     grayMatter->setExit("south", brainStem);
@@ -88,6 +98,7 @@ void Game::createRooms()
     midBrain->setExit("east", brainStem);
     pons->setExit("north", brainStem);
     medulla->setExit("west", brainStem);
+
 
     // start game in the grey matter
     currentRoom = grayMatter;  

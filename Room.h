@@ -9,10 +9,11 @@
 #ifndef Room_H
 #define Room_H
 
-#include <set>
+
 #include <iostream>
 #include <map>
 #include <string>
+#include "Item.h"
 using namespace std;
 
 
@@ -22,6 +23,7 @@ private:
     string roomName;
     string roomDescription;
     map<string, Room*> exits;       
+    map<string, item*> items;
 
 public:
     Room(string name, string description);
@@ -31,6 +33,9 @@ public:
     string getLongDescription();
     string getExitString();
     Room* getExit(string direction);
+
+    void addItem(item* theItem);
+    void removeItem(string name);
 };
 
 #endif
